@@ -19,6 +19,13 @@ register_node(modn .. ':stone', {
     is_ground_content = true
 })
 
+register_node(modn .. ':sand', {
+    description = 'Essential node for mapgen alias “mapgen_stone”',
+    tiles = { 'sand2.png' },
+    groups = { oddly_breakable_by_hand = 3 },
+    is_ground_content = true
+})
+
 register_node(modn .. ':river_water_source', {
     description = 'Essential node for mapgen alias “mapgen_river_water_source”',
     tiles = { modn .. '_river_water_source.png' },
@@ -36,7 +43,7 @@ register_alias('mapgen_river_water_source', modn .. ':river_water_source')
 
 minetest.register_biome({
 		name = "unknown",
-		node_top = modn .. ":stone",
+		node_top = modn .. ":sand",
 		depth_top = 1,
 		node_filler = modn .. ":stone",
 		depth_filler = 1,
