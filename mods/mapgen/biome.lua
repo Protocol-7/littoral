@@ -5,7 +5,7 @@ minetest.register_biome({
     node_top = modn .. ":sand",
     depth_top = 1,
     node_filler = modn .. ":sand4",
-    depth_filler = 3,
+    depth_filler = 1,
     node_riverbed = modn .. ":stone",
     depth_riverbed = 2,
     y_min = -31000,

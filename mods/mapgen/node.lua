@@ -24,8 +24,8 @@ register_node(modn .. ':sand2', { -- dry
     is_ground_content = true
 })
 register_node(modn .. ':sand4', { -- dry
-    description = 'Packed Sand',
-    tiles = { 'sand4.png' },
+    description = 'Sand Blend Stone',
+    tiles = { 'sand3.png^wolm.png' },
     groups = { oddly_breakable_by_hand = 3, sandy = 1 },
     is_ground_content = true
 })

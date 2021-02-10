@@ -165,6 +165,9 @@ for k,v in pairs(abio) do
       
          end
     end
+
+------------------------
+-- SAND / SUBSTRATE ADJUSTMENTS
     minetest.register_decoration({
         deco_type = "simple",
     
@@ -199,10 +202,93 @@ for k,v in pairs(abio) do
         -- If absent or -1, decorations occur next to any nodes.
     
         flags = "liquid_surface, force_placement, all_floors",
-        decoration = {"rocks:stone_glove","rocks:stone_large_flat","rocks:stone_pillar_90"},
+        decoration = {"rocks:stone_glove","rocks:stone_round"},
         height = 1,
         height_max = 0,
         param2 = 0,
         param2_max = 0,
         place_offset_y = 0,
+    })
+
+    minetest.register_decoration({
+        deco_type = "simple",
+    
+        place_on = {"mapgen:sand"},
+        -- Node (or list of nodes) that the decoration can be placed on
+    
+        sidelen = 8,
+        -- Size of the square divisions of the mapchunk being generated.
+        -- Determines the resolution of noise variation if used.
+        -- If the chunk size is not evenly divisible by sidelen, sidelen is made
+        -- equal to the chunk size.
+    
+        noise_params = {
+            offset = -0.2,
+            scale = 0.7,
+            spread = {x = 16, y = 16, z = 16},
+            seed = 354,
+            octaves = 3,
+            persist = 0.7,
+            lacunarity = 2.0,
+            flags = "absvalue"
+        },
+        biomes = {"unknown"},
+        y_min = -25000,
+        y_max = 112,
+    
+    
+        spawn_by = {"mapgen:sand","void_essential:stone"},
+        num_spawn_by = -1,
+        -- Number of spawn_by nodes that must be surrounding the decoration
+        -- position to occur.
+        -- If absent or -1, decorations occur next to any nodes.
+    
+        flags = "force_placement",
+        decoration = {"void_essential:stone"},
+        height = 1,
+        height_max = 0,
+        param2 = 0,
+        param2_max = 0,
+        place_offset_y = -1,
+    })
+    minetest.register_decoration({
+        deco_type = "simple",
+    
+        place_on = {"mapgen:sand"},
+        -- Node (or list of nodes) that the decoration can be placed on
+    
+        sidelen = 8,
+        -- Size of the square divisions of the mapchunk being generated.
+        -- Determines the resolution of noise variation if used.
+        -- If the chunk size is not evenly divisible by sidelen, sidelen is made
+        -- equal to the chunk size.
+    
+        noise_params = {
+            offset = -0.2,
+            scale = 0.7,
+            spread = {x = 16, y = 16, z = 16},
+            seed = 354,
+            octaves = 3,
+            persist = 0.7,
+            lacunarity = 2.0,
+            flags = "absvalue"
+        },
+        biomes = {"unknown"},
+        y_min = -25000,
+        y_max = 112,
+    
+    
+        spawn_by = {"mapgen:sand","void_essential:stone"},
+        num_spawn_by = -1,
+        -- Number of spawn_by nodes that must be surrounding the decoration
+        -- position to occur.
+        -- If absent or -1, decorations occur next to any nodes.
+    
+        flags = "force_placement",
+        decoration = {"void_essential:stone"},
+        height = 1,
+        height_max = 0,
+        param2 = 0,
+        param2_max = 0,
+        place_offset_y = -1,
     })

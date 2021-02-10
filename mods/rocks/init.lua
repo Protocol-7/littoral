@@ -327,7 +327,7 @@ end --End register_rockset function
 
 --------------Default Rocks Registration -------
 
-register_rockset("stone", "mapgen:stone", "mapgen:stone", "stone.png")
+register_rockset("stone", "mapgen:stone", "mapgen:stone", "stone2.png^(fleck.png^[multiply:#7cfc00)")
 --[[register_rockset("desert_sand", "default:desert_sand", "default:desert_sandstone", "desert_sand.png")
 register_rockset("desert_stone", "default:desert_stone", "default:desert_cobble", "desert_stone.png")
 register_rockset("sand", "default:sand", "default:sandstone", "sand.png")
