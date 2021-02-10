@@ -4,7 +4,7 @@ local register_alias = minetest.register_alias
 
 register_node('void_essential:stone', {
     description = 'Essential node for mapgen alias “mapgen_stone”',
-    tiles = { 'sand3b.png' },
+    tiles = { 'sand3.png' },
     groups = { oddly_breakable_by_hand = 3 },
     is_ground_content = true
 })
