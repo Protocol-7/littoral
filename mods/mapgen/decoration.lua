@@ -1,52 +1,41 @@
 local bio = littoral.biota
+littoral.mapgen.deco = {}
+
+littoral.add_deco = function(tab)
+    littoral.mapgen.deco[tab.label] =
+    minetest.register_decoration({
+        deco_type = tab.deco_type or "simple",
+        place_on = tab.place_on or "mapgen:sand",
+        sidelen = tab.sidelen or 8,
+        fill_ratio = tab.fill_ratio,
+        noise_params = tab.noise_params,
+        biomes = tab.biomes or "unknown",
+        y_min = tab.y_min or -30000,
+        y_max = tab.y_max or 112,
+        spawn_by = tab.spawn_by or "mapgen:water_source",
+        num_spawn_by = tab.num_spawn_by or 0,
+        flags = tab.flags or "force_placement",
+        decoration = tab.decoration,
+        height = tab.height,
+        height_max = tab.height_max,
+        param2 = tab.param2,
+        param2_max = tab.param2_max,
+        place_offset_y = tab.place_offset_y,
+        schematic = tab.schematic,
+        replacements = tab.replacements,
+        rotation = tab.rotation
+    })
+end
+
 
 for k,v in pairs(bio) do
 for n = 1, #v do
     local org = v[n]
     local name = "mapgen:"..org.name
-minetest.register_decoration({
-    deco_type = "simple",
-
-    place_on = "mapgen:sand",
-    -- Node (or list of nodes) that the decoration can be placed on
-
-    sidelen = 8,
-    -- Size of the square divisions of the mapchunk being generated.
-    -- Determines the resolution of noise variation if used.
-    -- If the chunk size is not evenly divisible by sidelen, sidelen is made
-    -- equal to the chunk size.
-
-    noise_params = {
-        offset = -0.4,
-        scale = (org.abundance and org.abundance/10) or (org.form == "seagrass" and 0.8) or 0.6,
-        spread = {x = 16, y = 16, z = 16},
-        seed = 354,
-        octaves = 1,
-        persist = 0.4,
-        lacunarity = 2.0,
-        flags = "absvalue"
-    },
-    biomes = {"unknown"},
-    y_min = org.depth_index and org.depth_index*-100 or org.form == "seagrass" and 0 or -250,
-    y_max = org.form == "bryozoan" and 52 or 73,
-
-
-    spawn_by = "mapgen:water_source",
-    num_spawn_by = 1,
-    -- Number of spawn_by nodes that must be surrounding the decoration
-    -- position to occur.
-    -- If absent or -1, decorations occur next to any nodes.
-
-    flags = "liquid_surface, force_placement, all_floors",
-    decoration = name,
-    height = 1,
-    height_max = 0,
-    param2 = org.paramtypes[2] == "leveled" and 16 or 0,
-    param2_max = org.paramtypes[2] == "leveled" and 16*6 or 4,
-    place_offset_y = -1,
-})
-  
-     end
+    for nn = 1, #org.deco do
+    littoral.add_deco(org.deco[nn])
+    end
+    end
 end
 
 local abio = littoral.abiota

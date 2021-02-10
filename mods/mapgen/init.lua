@@ -3,7 +3,7 @@ local modn = minetest.get_current_modname()
 local modp = minetest.get_modpath(modn)
 mapgen_params = {water_level = 89}
 minetest.set_mapgen_params(mapgen_params)
-littoral = {}
+littoral = {mapgen = {}}
 littoral.abiota = {}
 local abiota = littoral.abiota
 abiota.tech = {}

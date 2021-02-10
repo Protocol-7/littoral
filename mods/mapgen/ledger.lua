@@ -130,21 +130,97 @@ local pool = {
 	height = 1,
 	param2 = nil,
 	paramtypes = {[2] = "meshoptions"}},
+	{
+		name = "poriferan3",
+		form = "poriferan",
+		abundance = 8,
+		waving = 1,
+		depth_index = 4,
+		tiles = {"sand.png^rootcover.png"},
+		height = 1,
+		special_tiles = {{name ="poriferan3.png", tileable_vertical = false}},
+		drawtype = "plantlike_rooted",
+		paramtypes = {"light","meshoptions"},
+		groups = {poriferan = 1}
+	},
+	{
+		name = "poriferan2",
+		form = "poriferan",
+		abundance = 8,
+		waving = 1,
+		depth_index = 4,
+		tiles = {"sand.png^rootcover.png"},
+		height = 1,
+		special_tiles = {{name ="poriferan2.png", tileable_vertical = false}},
+		drawtype = "plantlike_rooted",
+		paramtypes = {"light","meshoptions"},
+		groups = {poriferan = 1}
+	},
+	{
+		name = "seagrass8",
+		--order = 8,
+		form = "seagrass",
+		abundance = 1.6,
+		--waving = 1,
+		depth_index = 4,
+		tiles = {"sand.png^rootcover.png"},
+		height = 1,
+		special_tiles = {{name ="seagrass8.png"}},
+		drawtype = "plantlike_rooted",
+		paramtypes = {[2] = "meshoptions"},
+		groups = {seagrass = 1}
+	}
+}
+local default_deco = {
+	deco_type = "simple",
+    --noise_params = tab.noise_params,
+        y_min = -30000,
+        y_max = 89,
+        --spawn_by = tab.spawn_by or "mapgen:water_source",
+        --num_spawn_by = tab.num_spawn_by,
+        --flags = tab.flags,
+        --decoration = tab.decoration,
+        height = 1,
+        height_max = 1,
+        --param2 = tab.param2,
+        --param2_max = tab.param2_max,
+        place_offset_y = -1,
 }
 for n = 1, #pool do
     local org = pool[n]
     org.special_tiles = org.special_tiles or org.drawtype == "plantlike_rooted" and {{name = org.name..".png", tileable_vertical = true}}
     org.tiles[1] = (org.drawtype == "mesh" and "[combine:16x32:0,0="..org.name..".png:0,16=sand"..".png") or "sand.png"
 	org.mesh = org.drawtype == "mesh" and org.name..".obj"
+	local deco = {}
+	for k,v in pairs(default_deco)do
+		deco[k] = v
+	end
+	deco.decoration = modn..":"..org.name
+	deco.label = "Mapgen placement for "..org.name
+	deco.param2_max = org.drawtype == "plantlike_rooted" and 16*6 or 4
+	deco.y_min = org.depth_index and org.depth_index*-100 or org.form == "seagrass" and 0 or -250
+    deco.y_max = (org.form == "bryozoan") and 52 or 73
+	deco.noise_params = {
+	offset = -0.4,
+	scale = (org.abundance and org.abundance/10) or (org.form == "seagrass" and 0.8) or 0.6,
+	spread = {x = 16, y = 16, z = 16},
+	seed = 354,
+	octaves = 1,
+	persist = 0.4,
+	lacunarity = 2.0,
+	flags = "absvalue"
+	}
+	org.deco = {}
+	org.deco[#org.deco+1] = deco
 end
 for n = 1, #pool do
     littoral.add_biota(pool[n])
 end
-
+--[[
 littoral.add_biota(
 	{
 		name = "seagrass8",
-		order = 8,
+		--order = 8,
 		form = "seagrass",
 		abundance = 1.6,
 		--waving = 1,
@@ -186,7 +262,7 @@ littoral.add_biota(
 		paramtypes = {"light","meshoptions"},
 		groups = {poriferan = 1}
 	}
-)
+)]]
 ------------------------------
 -- ABIOTA
 ------------------------------
