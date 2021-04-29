@@ -1,0 +1,177 @@
+"{
+    \"seagrass1\":{   
+       \"name\" : \"seagrass1\",
+        \"lname\" : \"ectocarpus siliculosus\",
+        \"form\" : \"seagrass\",
+        \"abundance\" : 2,
+        \"drawtype\" : \"plantlike_rooted\",
+        \"waving\" : 1,
+        \"tiles\" : [],
+        \"height\" : 1,
+        \"paramtypes\":[\"meshoptions\"]
+   },
+    \"seagrass2\":{
+       \"name\" : \"seagrass2\",
+        \"lname\" : \"macrocystis pyrifera\",
+        \"form\" : \"seagrass\",
+        \"drawtype\" : \"plantlike_rooted\",
+        \"waving\" : 1,
+        \"tiles\" : [],
+        \"height\" : 8,
+        \"paramtypes\" : [\"leveled\"]
+   },
+    \"seagrass3\":{
+       \"name\" : \"seagrass3\",
+        \"lname\" : \"zostera marina\",
+        \"form\" : \"seagrass\",
+        \"abundance\" : 7,
+        \"drawtype\" : \"plantlike_rooted\",
+        \"waving\" : 1,
+        \"tiles\" : [],
+        \"height\" : 1,
+        \"paramtypes\" : [\"meshoptions\"]
+   },
+    \"seagrass4\":{
+       \"name\" : \"seagrass4\",
+        \"lname\" : \"saccharina latissima\",
+        \"form\" : \"seagrass\",
+        \"abundance\" : 6,
+        \"drawtype\" : \"plantlike_rooted\",
+        \"waving\" : 1,
+        \"tiles\" : [],
+        \"height\" : 1,
+        \"paramtypes\" : [\"meshoptions\"]
+   },
+    \"seagrass5\":{
+       \"name\" : \"seagrass5\",
+        \"lname\" : \"laminaria japonica\",
+        \"form\" : \"seagrass\",
+        \"drawtype\" : \"plantlike_rooted\",
+        \"waving\" : 1,
+        \"tiles\" : [],
+        \"height\" : 4,
+        \"paramtypes\" : [\"leveled\"]
+   },
+    \"seagrass6\":{    
+       \"name\" : \"seagrass6\",
+        \"lname\" : \"thalassia testudinum\",
+        \"form\" : \"seagrass\",
+        \"drawtype\" : \"plantlike_rooted\",
+        \"waving\" : 1,
+        \"tiles\" : [],
+        \"height\" : 1,
+        \"paramtypes\" : [\"meshoptions\"]
+   },
+    \"seagrass7\":{
+       \"name\" : \"seagrass7\",
+        \"lname\" : \"sargassum muticum\",
+        \"form\" : \"seagrass\",
+        \"drawtype\" : \"plantlike_rooted\",
+        \"waving\" : 1,
+        \"tiles\" : [],
+        \"height\" : 12,
+        \"paramtypes\" : [\"leveled\"]
+   },
+    \"bryozoan1\":{
+        \"lname\" : \"schizoporella unicornis\",
+       \"name\" : \"bryozoan1\",
+        \"abundance\" : 8,
+        \"form\" : \"bryozoan\",
+        \"drawtype\" : \"mesh\",
+        \"tiles\" : [\"[combine:16x32:0,0:bryozoan1.png:0,16:sand.png\"],
+        \"height\" : 1
+   },
+    \"ascidian1\":{
+        \"lname\" : \"ascidia paratropa\",
+       \"name\" : \"ascidian1\",
+        \"form\" : \"ascidian\",
+        \"drawtype\" : \"plantlike_rooted\",
+        \"waving\" : 1,
+        \"tiles\" : [],
+        \"height\" : 1,
+        \"paramtypes\" : [\"meshoptions\"]
+   },
+    \"ascidian2\":{
+        \"lname\" : \"didemnum carnulentum\",
+       \"name\" : \"ascidian2\",
+        \"form\" : \"ascidian\",
+        \"drawtype\" : \"mesh\",
+        \"tiles\" : [\"[combine:16x32:0,0:ascidian2.png:0,16:sand.png\"],
+        \"height\" : 1,
+        \"paramtypes\" : [\"meshoptions\"]
+   },
+    \"poriferan1\":{
+        \"lname\" : \"spongia officinalis\",
+       \"name\" : \"poriferan1\",
+        \"form\" : \"poriferan\",
+        \"drawtype\" : \"plantlike_rooted\",
+        \"tiles\" : [],
+        \"waving\" : 1,
+        \"height\" : 1,
+        \"paramtypes\" : [\"meshoptions\"]
+   },
+    \"poriferan2\":{
+           \"name\" : \"poriferan2\",
+            \"lname\" : \"euplectella aspergillum\",
+            \"form\" : \"poriferan\",
+            \"abundance\" : 8,
+            \"waving\" : 1,
+            \"depth_index\" : 4,
+            \"tiles\" : [\"sand.png^rootcover.png\"],
+            \"height\" : 1,
+            \"special_tiles\" : {\"name\" :\"poriferan2.png\", \"tileable_vertical\" : false},
+            \"drawtype\" : \"plantlike_rooted\",
+            \"paramtypes\" : [\"light\",\"meshoptions\"],
+            \"groups\" : {\"poriferan\" : 1}
+   },
+    \"poriferan3\":{
+           \"name\" : \"poriferan3\",
+            \"form\" : \"poriferan\",
+            \"abundance\" : 8,
+            \"waving\" : 1,
+            \"depth_index\" : 4,
+            \"tiles\" : [\"sand.png^rootcover.png\"],
+            \"height\" : 1,
+            \"special_tiles\" : {\"name\" :\"poriferan3.png\", \"tileable_vertical\" : false},
+            \"drawtype\" : \"plantlike_rooted\",
+            \"paramtypes\" : [\"light\",\"meshoptions\"],
+            \"groups\" : {\"poriferan\" : 1}
+   },
+    \"seagrass8\":{
+           \"name\" : \"seagrass8\",
+            \"form\" : \"seagrass\",
+            \"abundance\" : 8,
+            \"waving\" : 1,
+            \"depth_index\" : 4,
+            \"tiles\" : [\"sand.png^rootcover.png\"],
+            \"height\" : 1,
+            \"special_tiles\" : {\"name\" :\"seagrass8.png\"},
+            \"drawtype\" : \"plantlike_rooted\",
+            \"paramtypes\" : [\"meshoptions\"],
+            \"groups\" : {\"seagrass\" : 1}
+   },
+    \"bryozoan2\":{
+           \"name\" : \"bryozoan2\",
+            \"form\" : \"bryozoan\",
+            \"abundance\" : 8,
+            \"waving\" : 1,
+            \"depth_index\" : 4,
+            \"tiles\" : [\"stone_crustose2.png\"],
+            \"height\" : 1,
+            \"drawtype\" : \"normal\",
+            \"paramtypes\" : [],
+            \"groups\" : {\"bryozoan\" : 1}
+   },
+    \"bryozoan3\":{
+           \"name\" : \"bryozoan3\",
+            \"form\" : \"bryozoan\",
+            \"abundance\" : 8,
+            \"waving\" : 1,
+            \"depth_index\" : 4,
+            \"tiles\" : [\"stone_crustose1.png\"],
+            \"height\" : 1,
+            \"drawtype\" : \"normal\",
+            \"paramtypes\" : [],
+            \"groups\" : {\"bryozoan\" : 1}
+    }
+}"

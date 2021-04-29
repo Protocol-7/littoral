@@ -1,0 +1,14 @@
+23-4-2021
+
+- Test player distance sampling based tethering system.
+- Test potential to use entities for ocean surface during high tides.
+- Fix default water height.
+- Bucket Mod
+- refactor mapgen decoration constructors to be more abstract
+- Initial Crafting Table (Placeholder for later systems)
+- Sort out terrain nodes and names.
+- Add terrain variety. (nodes) [sand variants, dolomite, caco3 variants, dirt, shale] 
+- Add terrain variety. (structures) [sand circles, monoliths, mineral spikes, ring structures*]
+
+
+
