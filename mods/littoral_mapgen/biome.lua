@@ -11,10 +11,10 @@ littoral.biome.limit = {}
 local limit = littoral.biome.limit
 
 limit.sea_level = sl
-limit.littoral = {sl+6,sl-6}
-limit.subtidal = {sl-7,sl-72}
-limit.bathyal = {sl-73,sl-216}
-limit.abyssal = {sl-217,sl-321}
+limit.littoral = {sl,sl-18}
+limit.subtidal = {sl-18,sl-39}
+limit.bathyal = {sl-39,sl-69}
+limit.abyssal = {sl-69,sl-321}
 limit.hadal = {sl-322,sl-666}
 limit.vernal = {sl-667, -31000}
 
@@ -30,7 +30,7 @@ minetest.register_biome({
     node_riverbed = modn .. ":stone",
     depth_riverbed = 4,
     y_min = -31000,
-    y_max = 226,
+    y_max = 31000,
     heat_point = 0,
     humidity_point = 0,
     node_water = modn..":water_source"

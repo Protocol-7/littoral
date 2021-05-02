@@ -4,28 +4,31 @@ local modn = "littoral_life"
 littoral.mapgen.deco = {}
 
 littoral.add_deco = function(tab)
-    littoral.mapgen.deco[tab] =
+    local tall_kelp_offset = tab.paramtypes and tab.paramtypes[2] == "leveled" and -9 or 0
+    littoral.mapgen.deco[tab.name] = littoral.mapgen.deco[tab.name] or {}
+    table.insert(littoral.mapgen.deco[tab.name],
     minetest.register_decoration({
-        name = "Metropolitan "..tab.name.." placement",
+        name = tab.name or "Metropolitan "..tab.name.." placement",
         deco_type = tab.deco_type or "simple",
         place_on = tab.place_on or "littoral_mapgen:sand",
-        sidelen = tab.sidelen or 16,
-        fill_ratio = tab.fill_ratio or 0.004,
+        sidelen = tab.sidelen or 7,
+        fill_ratio = tab.fill_ratio or 0.002,
         noise_params = tab.noise_params,
         biomes = tab.biomes or "unknown",
         y_min = tab.y_min or -30000,
-        y_max = tab.y_max or 112,
+        y_max = tab.y_max or littoral.biome.limit.sea_level + tall_kelp_offset,
         spawn_by = tab.spawn_by or "littoral_mapgen:water_source",
         num_spawn_by = tab.num_spawn_by or 0,
-        flags = tab.flags or "force_placement",
+        flags = tab.flags or "all_floors, force_placement",
         decoration = tab.decoration or modn..":"..tab.name,
         height = 1,
         height_max = 1,
         param2 = tab.param2 or 0,
         param2_max = tab.height or 1,
-        place_offset_y = tab.place_offset_y or -1,
-    })
+        place_offset_y = tab.place_offset_y or 1,
+    }))
 end
+
 littoral.add_ore = function(tab)
     return minetest.register_ore(tab)
 end
@@ -112,7 +115,7 @@ end
         sidelen = 8,
         noise_params = {
             offset = -0.47,
-            scale = 0.92,
+            scale = 0.62,
             spread = {x = 160, y = 160, z = 160},
             seed = 354,
             octaves = 3,
@@ -135,11 +138,11 @@ end
     })
 
 
-littoral.add_deco(
-    {
-        name = "seagrass2",
+local decos = {
+    {   
+        species = "seagrass2",
         deco_type = "simple",
-        place_on = "mapgen:sand",
+        place_on = "littoral_mapgen:sand",
         sidelen = 8,
         noise_params = {
             offset = -0.4,
@@ -152,23 +155,153 @@ littoral.add_deco(
             flags = "absvalue"
         },
         biomes = "unknown",
-        y_min = -30,
+        y_min = -300,
         y_max = 88,
-        spawn_by = "mapgen:water_source",
+        spawn_by = "littoral_mapgen:water_source",
         num_spawn_by = 0,
-        flags = "force_placement",
+        
         decoration = modn..":seagrass2",
         --height = 1,
         --height_max = 1,
         param2 = 0,
         param2_max = 16*9,
         place_offset_y = -1,
-    })
-littoral.add_deco(
+    },
+    {   
+        species = "seagrass5",
+        deco_type = "simple",
+        place_on = "littoral_mapgen:sand",
+        sidelen = 8,
+        noise_params = {
+            offset = -0.4,
+            scale = 0.7,
+            spread = {x = 23, y = 6, z = 32},
+            seed = 95,
+            octaves = 1,
+            persist = 0.7,
+            lacunarity = 2.0,
+            flags = "absvalue"
+        },
+        biomes = "unknown",
+        y_min = -300,
+        y_max = 88,
+        spawn_by = "littoral_mapgen:water_source",
+        num_spawn_by = 0,
+        
+        decoration = modn..":seagrass2",
+        --height = 1,
+        --height_max = 1,
+        param2 = 0,
+        param2_max = 16*9,
+        place_offset_y = -1,
+    },
     {
-    name = "seagrass3",
+    species = "seagrass3",
     deco_type = "simple",
-    place_on = "mapgen:sand",
+    place_on = "littoral_mapgen:sand",
+    sidelen = 8,
+    noise_params = {
+        offset = -0.08,
+            scale = 0.4,
+            spread = {x = 50, y = 30, z = 20},
+            seed = 354,
+            octaves = 10,
+            persist = 0.6,
+            lacunarity = 2.0,
+            flags = "absvalue"
+    },
+    biomes = "unknown",
+    y_min = -90,
+    y_max = 88,
+    spawn_by = "littoral_mapgen:water_source",
+    num_spawn_by = 0,
+    
+    decoration = modn..":seagrass3",
+    --height = 1,
+    --height_max = 1,
+    param2 = 0,
+    param2_max = 4,
+    place_offset_y = -1,
+    },
+{
+	species = "seagrass4",
+	deco_type = "simple",
+    place_on = "littoral_mapgen:sand",
+    sidelen = 8,
+    noise_params = {
+		offset = -0.08,
+			scale = 0.4,
+			spread = {x = 12, y = 12, z = 12},
+			seed = 354,
+			octaves = 2,
+			persist = 0.3,
+			lacunarity = 2.0,
+			flags = "absvalue"
+	},
+    biomes = "unknown",
+    y_min = -90,
+    y_max = 88,
+    spawn_by = "littoral_mapgen:water_source",
+    num_spawn_by = 0,
+    
+    decoration = modn..":seagrass4",
+    --height = 1,
+    --height_max = 1,
+    param2 = 0,
+    param2_max = 4,
+    place_offset_y = -1,
+	},
+{
+	species = "seagrass6",
+	deco_type = "simple",
+    place_on = {"littoral_mapgen:sand", "group:seagrass"},
+    sidelen = 8,
+    fill_ratio = 0.1,
+    biomes = "unknown",
+    y_min = -990,
+    y_max = 67,
+    spawn_by = "littoral_mapgen:water_source",
+    num_spawn_by = 0,
+    flags = "force_placement",
+    decoration = "littoral_life:seagrass6",
+    --height = 1,
+    --height_max = 1,
+    param2 = 0,
+    param2_max = 4,
+    place_offset_y = -1,
+	},
+{
+		species = "seagrass7",
+		deco_type = "simple",
+		place_on = "littoral_mapgen:sand",
+		sidelen = 8,
+		noise_params = {
+			offset = -0.4,
+			scale = 0.7,
+			spread = {x = 16, y = 16, z = 16},
+			seed = 355,
+			octaves = 1,
+			persist = 0.7,
+			lacunarity = 2.0,
+			flags = "absvalue"
+		},
+		biomes = "unknown",
+		y_min = -300,
+		y_max = 88,
+		spawn_by = "littoral_mapgen:water_source",
+		num_spawn_by = 0,
+		
+		decoration = modn..":seagrass7",
+		--height = 1,
+		--height_max = 1,
+		param2 = 0,
+		param2_max = 16*9,
+		place_offset_y = -1,
+	},
+{
+    species = "bryozoan3",
+    deco_type = "simple",
+    place_on = "littoral_mapgen:sand",
     sidelen = 8,
     noise_params = {
         offset = -0.08,
@@ -183,125 +316,9 @@ littoral.add_deco(
     biomes = "unknown",
     y_min = 0,
     y_max = 88,
-    spawn_by = "mapgen:water_source",
+    spawn_by = "littoral_mapgen:water_source",
     num_spawn_by = 0,
-    flags = "force_placement",
-    decoration = modn..":seagrass3",
-    --height = 1,
-    --height_max = 1,
-    param2 = 0,
-    param2_max = 4,
-    place_offset_y = -1,
-    }
-)
-littoral.add_deco({
-	name = "seagrass4",
-	deco_type = "simple",
-    place_on = "mapgen:sand",
-    sidelen = 8,
-    noise_params = {
-		offset = -0.08,
-			scale = 0.4,
-			spread = {x = 5, y = 6, z = 2},
-			seed = 354,
-			octaves = 1,
-			persist = 0.3,
-			lacunarity = 2.0,
-			flags = "absvalue"
-	},
-    biomes = "unknown",
-    y_min = 0,
-    y_max = 88,
-    spawn_by = "mapgen:water_source",
-    num_spawn_by = 0,
-    flags = "force_placement",
-    decoration = modn..":seagrass4",
-    --height = 1,
-    --height_max = 1,
-    param2 = 0,
-    param2_max = 4,
-    place_offset_y = -1,
-	}
-)
-littoral.add_deco({
-	name = "seagrass6",
-	deco_type = "simple",
-    place_on = "mapgen:sand",
-    sidelen = 8,
-    noise_params = {
-		offset = -0.21,
-			scale = 0.6,
-			spread = {x = 32, y = 6, z = 12},
-			seed = 354,
-			octaves = 1,
-			persist = 0.1,
-			lacunarity = 0.5,
-			flags = "absvalue"
-	},
-    biomes = "unknown",
-    y_min = 0,
-    y_max = 88,
-    spawn_by = "mapgen:water_source",
-    num_spawn_by = 0,
-    flags = "force_placement",
-    decoration = modn..":seagrass6",
-    --height = 1,
-    --height_max = 1,
-    param2 = 0,
-    param2_max = 4,
-    place_offset_y = -1,
-	}
-)
-littoral.add_deco({
-		name = "seagrass7",
-		deco_type = "simple",
-		place_on = "mapgen:sand",
-		sidelen = 8,
-		noise_params = {
-			offset = -0.4,
-			scale = 0.7,
-			spread = {x = 16, y = 16, z = 16},
-			seed = 355,
-			octaves = 1,
-			persist = 0.7,
-			lacunarity = 2.0,
-			flags = "absvalue"
-		},
-		biomes = "unknown",
-		y_min = -30,
-		y_max = 88,
-		spawn_by = "mapgen:water_source",
-		num_spawn_by = 0,
-		flags = "force_placement",
-		decoration = modn..":seagrass7",
-		--height = 1,
-		--height_max = 1,
-		param2 = 0,
-		param2_max = 16*9,
-		place_offset_y = -1,
-	}
-)
-littoral.add_deco({
-    name = "bryozoan33",
-    deco_type = "simple",
-    place_on = "mapgen:sand",
-    sidelen = 8,
-    noise_params = {
-        offset = -0.08,
-            scale = 0.06,
-            spread = {x = 50, y = 30, z = 20},
-            seed = 354,
-            octaves = 2,
-            persist = 0.6,
-            lacunarity = 2.0,
-            flags = "absvalue"
-    },
-    biomes = "unknown",
-    y_min = 0,
-    y_max = 88,
-    spawn_by = "mapgen:water_source",
-    num_spawn_by = 0,
-    flags = "force_placement",
+    
     decoration = modn..":bryozoan3",
     --height = 1,
     --height_max = 1,
@@ -309,18 +326,31 @@ littoral.add_deco({
     param2_max = 4,
     place_offset_y = -1,
     }
-)
---[[local function deco_zonation()
+}
+local function deco_zonation()
     local biota = littoral.biota
-    for k,v in pairs(minetest.registered_decorations)do
-        local name = v.name
+    for n = 1, #decos do
+        local v = decos[n]
+        local name = v.species
         if(biota.names_all[name])then
             local ref = biota.names_all[name]
             local def = biota[ref.form][ref.id]
             local zone = def.depth_zone or "bathyal"
             local lims = littoral.biome.limit[zone]
+            v.name = "Monopop "..v.species
             v.y_max = lims[1]
             v.y_min = lims[2]
+            local yym = v.y_min
+            local x = littoral.add_deco(v)
+            minetest.after(7, function() say("second regset: "..#decos)end)
         end
+        
     end
-end]]
+end
+deco_zonation()
+local ct = 0
+for k,v in pairs(minetest.registered_decorations)do
+    minetest.after(9, function() say(k) end)
+    ct = ct + 1
+end
+minetest.after(7, function() say("total regset: "..ct) end)

@@ -60,7 +60,7 @@ littoral.add_abiota({
 	
 	paramtypes = {"light","facedir"}
 })]]
-
+--[[
 littoral.add_abiota({
 	name = "phial",
 	form = "tech",
@@ -194,7 +194,7 @@ littoral.add_abiota({
 		littoral.bubble(pos, "smote1.png")
 	end
 })
-
+]]
 --
 -- NODE REGISTRATION
 --

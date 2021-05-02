@@ -21,6 +21,7 @@ local pool = {
 		lname = "macrocystis pyrifera",
 		form = "seagrass",
 		drawtype = "plantlike_rooted",
+		depth_zone = "subtidal",
 		waving = 1,
 		tiles = {},
 		height = 8 * 16,
@@ -82,6 +83,7 @@ local pool = {
 		lname = "sargassum muticum",
 		form = "seagrass",
 		drawtype = "plantlike_rooted",
+		depth_zone = "subtidal",
 		waving = 1,
 		tiles = {},
 		height = 12*16,
@@ -210,6 +212,7 @@ for n = 1, #pool do
     org.tiles[1] = org.tiles[1] or --[[(org.drawtype == "mesh" and "[combine:16x32:0,0="..org.name..".png:0,16=sand"..".png") or]] "sand.png"
 	
     org.mesh = org.drawtype == "mesh" and org.name..".obj"
+	org.place_offset_y = -1
 end
 for n = 1, #pool do
     littoral.add_biota(pool[n])
@@ -243,3 +246,4 @@ register_node(modn..":"..org.name, {
 })
 end
 end
+
