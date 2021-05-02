@@ -16,7 +16,7 @@ register_node(modn .. ':sand', {
     description = 'Wet Sand',
     tiles = { 'sand.png' },
 	paramtype = "light",
-	light_source = 0,
+	--light_source = 0,
     groups = { oddly_breakable_by_hand = 3 , sandy = 1},
     is_ground_content = true
 })
@@ -58,7 +58,7 @@ register_node(modn .. ':hal1', {
     is_ground_content = true,
 	on_punch = function()
 		local n = math.random(10)
-	minetest.override_item(modn..":hal1",{light_source = n})
+	--minetest.override_item(modn..":hal1",{light_source = n})
 	say(n)
 	end
 })
@@ -195,7 +195,7 @@ register_node(modn..":brine_source", {
 	buildable_to = true,
 	is_ground_content = false,
 	drop = "",
-	light_source = 0,
+	--light_source = 0,
 	drowning = 1,
 	liquidtype = "source",
 	liquid_alternative_flowing = modn..":brine_flowing",
@@ -240,7 +240,7 @@ register_node(modn..":brine_flowing", {
 	buildable_to = true,
 	is_ground_content = false,
 	drop = "",
-	light_source = 0,
+	--light_source = 0,
 	drowning = 1,
 	range = 1,
 	liquidtype = "flowing",

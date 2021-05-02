@@ -1,6 +1,6 @@
 littoral.schematic = {}
 
-local n1 = { name = "littoral_mapgen:water_source" }
+local n1 = { name = "air" }
 local n2 = { name = "littoral_tech:hal1" }
 local n3 = { name = "littoral_tech:ramp", param2 = 2 }
 local n4 = { name = "littoral_tech:ramp_corner", param2 = 2 }

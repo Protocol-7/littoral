@@ -78,7 +78,7 @@ minetest.register_on_generated(function()
     end
     vm:set_data(data)]]
     -- LIGHTING RECALCS (solves large dark patch bugs)
-    vm:set_lighting({day=minetest.LIGHT_MAX,night=2})
+    vm:set_lighting({day=minetest.LIGHT_MAX,night=0})
 	vm:calc_lighting(nil,false)
     
     vm:write_to_map(true)

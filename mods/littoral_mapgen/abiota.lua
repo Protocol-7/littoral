@@ -22,6 +22,7 @@ littoral.add_abiota({
 	mesh = "stone1.obj",
 	tiles = {meshtex("stone2.png")},
 	deco = {{
+		name = "stone1",
 		label = "soft Rock placement",
         deco_type = "simple",
         place_on = "mapgen:sand",
@@ -121,6 +122,7 @@ littoral.add_abiota({
 	groups = {cracky = 1},
 	deco ={
 		{
+			name = "ordenador",
 			label = "Monopop ordenador",
 			deco_type = "simple",
 			place_on = "mapgen:sand",
@@ -160,6 +162,7 @@ littoral.add_abiota({
 	groups = {cracky = 1},
 	deco ={
 		{
+			name = "vent1",
 			label = "Monopop vent1",
 			deco_type = "simple",
 			place_on = "mapgen:sand",

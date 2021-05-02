@@ -5,6 +5,7 @@ local register_node = minetest.register_node
 local register_alias = minetest.register_alias
 littoral.biota = {}
 local biota = littoral.biota
+biota.names_all = {}
 biota.seagrass = {}
 biota.bryozoan = {}
 biota.ascidian = {}
