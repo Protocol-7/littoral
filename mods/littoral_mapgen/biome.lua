@@ -11,11 +11,11 @@ littoral.biome.limit = {}
 local limit = littoral.biome.limit
 
 limit.sea_level = sl
-limit.littoral = {sl,sl-18}
-limit.subtidal = {sl-18,sl-39}
-limit.bathyal = {sl-39,sl-69}
-limit.abyssal = {sl-69,sl-321}
-limit.hadal = {sl-322,sl-666}
+limit.littoral = {sl,sl-28}
+limit.subtidal = {sl-28,sl-sl}
+limit.bathyal = {sl-sl,sl-sl-58}
+limit.abyssal = {sl-sl-58,sl-sl-112}
+limit.hadal = {sl-sl-112,sl-666}
 limit.vernal = {sl-667, -31000}
 
 ------------------------------------------

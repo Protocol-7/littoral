@@ -7,7 +7,7 @@ local bio = littoral.biota
 -- SUBSTRATUM
 register_node(modn .. ':stone', {
     description = 'Essential node for mapgen alias “mapgen_stone”',
-    tiles = { 'stone5.png' },
+    tiles = { 'stone3.png' },
     groups = { oddly_breakable_by_hand = 3 },
     is_ground_content = true,
 })
@@ -26,9 +26,15 @@ register_node(modn .. ':sand2', { -- dry
     groups = { oddly_breakable_by_hand = 3, sandy = 1 },
     is_ground_content = true
 })
-register_node(modn .. ':sand4', { -- dry
+register_node(modn .. ':sand_coarse', { -- dry
     description = 'Sand Blend Stone',
-    tiles = { 'stone3.png' },
+    tiles = { 'sand_coarse.png' },
+    groups = { oddly_breakable_by_hand = 3, sandy = 1 },
+    is_ground_content = true
+})
+register_node(modn .. ':gravel', { -- dry
+    description = 'Sand Blend Stone',
+    tiles = {'gravel.png'},
     groups = { oddly_breakable_by_hand = 3, sandy = 1 },
     is_ground_content = true
 })

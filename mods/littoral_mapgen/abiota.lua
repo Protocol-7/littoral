@@ -39,7 +39,7 @@ littoral.add_abiota({
         },
         biomes = {"unknown"},
         y_min = -250,
-        y_max = 90,
+        y_max = littoral.biome.limit.sea_level,
         spawn_by = "mapgen:water_source",
         num_spawn_by = 1,
         flags = "liquid_surface, force_placement, all_floors",
@@ -48,7 +48,40 @@ littoral.add_abiota({
 	}},
 	groups = {cracky = 1}
 })
-
+littoral.add_abiota({
+	name = "sand_coarse",
+	form = "stone",
+	drawtype = "mesh",
+	abundance = 6,
+	mesh = "stone1.obj",
+	tiles = {meshtex("sand_coarse.png")},
+	deco = {{
+		name = "undersand",
+		label = "second sand placement",
+        deco_type = "simple",
+        place_on = "mapgen:sand",
+        sidelen = 8,
+        noise_params = {
+            offset = -0.016,
+            scale = 0.032,
+            spread = {x = 20, y = 200, z = 20},
+            seed = 39,
+            octaves = 3,
+            persist = 0.1,
+            lacunarity = 2,
+            flags = "absvalue"
+        },
+        biomes = {"unknown"},
+        y_min = -250,
+        y_max = littoral.biome.limit.sea_level,
+        spawn_by = "mapgen:water_source",
+        num_spawn_by = 1,
+        flags = "liquid_surface, force_placement, all_floors",
+        decoration = modn..":sand_coarse",
+        place_offset_y = -2,
+	}},
+	groups = {cracky = 1}
+})
 --[[littoral.add_abiota({
 	name = "mdc",
 	form = "tech",
@@ -60,11 +93,11 @@ littoral.add_abiota({
 	
 	paramtypes = {"light","facedir"}
 })]]
---[[
+
 littoral.add_abiota({
 	name = "phial",
 	form = "tech",
-	abundance = 0.001,
+	abundance = 0.01,
 	drawtype = "mesh",
 	mesh = "phial.obj",
 	use_texture_alpha = true,
@@ -74,7 +107,7 @@ littoral.add_abiota({
 		{
 			ore_type = "blob",
 			ore = modn..":brine_source",
-			wherein = "mapgen:stone",
+			wherein = "littoral_mapgen:stone",
 			-- A list of nodenames is supported too
 		
 			clust_scarcity = 9 * 12 * 11,
@@ -82,15 +115,15 @@ littoral.add_abiota({
 			-- If the desired average distance between ores is 'd', set this to
 			-- d * d * d.
 		
-			clust_num_ores = 8,
+			clust_num_ores = 12^3,
 			-- Number of ores in a cluster
 		
-			clust_size = 4,
+			clust_size = 12,
 			-- Size of the bounding box of the cluster.
 			-- In this example, there is a 3 * 3 * 3 cluster where 8 out of the 27
 			-- nodes are coal ore.
 		
-			y_min = -31000,
+			y_min = -48,
 			y_max = 64,
 
 			flags = "",
@@ -194,7 +227,7 @@ littoral.add_abiota({
 		littoral.bubble(pos, "smote1.png")
 	end
 })
-]]
+
 --
 -- NODE REGISTRATION
 --
