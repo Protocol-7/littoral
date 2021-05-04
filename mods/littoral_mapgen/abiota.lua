@@ -11,10 +11,10 @@ littoral.add_abiota = function(data)
 end
 
 local function meshtex(tex1,tex2)
-	return "[combine:16x32:0,0="..tex1..":0,16="..(tex2 or "sand.png")
+	return "[combine:16x32:0,0="..tex1..":0,16="..(tex2 or "sand_wet.png")
 end
 
-littoral.add_abiota({
+--[[littoral.add_abiota({
 	name = "stone1",
 	form = "stone",
 	drawtype = "mesh",
@@ -25,7 +25,7 @@ littoral.add_abiota({
 		name = "stone1",
 		label = "soft Rock placement",
         deco_type = "simple",
-        place_on = "mapgen:sand",
+        place_on = "littoral_mapgen:sand_wet",
         sidelen = 8,
         noise_params = {
             offset = -0.016,
@@ -39,15 +39,15 @@ littoral.add_abiota({
         },
         biomes = {"unknown"},
         y_min = -250,
-        y_max = littoral.biome.limit.sea_level,
-        spawn_by = "mapgen:water_source",
+        y_max = littoral.biome.limit.sea_level+70,
+        spawn_by = "littoral_mapgen:water_source",
         num_spawn_by = 1,
         flags = "liquid_surface, force_placement, all_floors",
         decoration = modn..":stone1",
-        place_offset_y = -1,
+        place_offset_y = 1,
 	}},
 	groups = {cracky = 1}
-})
+})]]
 littoral.add_abiota({
 	name = "sand_coarse",
 	form = "stone",
@@ -59,7 +59,7 @@ littoral.add_abiota({
 		name = "undersand",
 		label = "second sand placement",
         deco_type = "simple",
-        place_on = "mapgen:sand",
+        place_on = "littoral_mapgen:sand_wet",
         sidelen = 8,
         noise_params = {
             offset = -0.016,
@@ -74,7 +74,7 @@ littoral.add_abiota({
         biomes = {"unknown"},
         y_min = -250,
         y_max = littoral.biome.limit.sea_level,
-        spawn_by = "mapgen:water_source",
+        spawn_by = "littoral_mapgen:water_source",
         num_spawn_by = 1,
         flags = "liquid_surface, force_placement, all_floors",
         decoration = modn..":sand_coarse",
@@ -158,7 +158,7 @@ littoral.add_abiota({
 			name = "ordenador",
 			label = "Monopop ordenador",
 			deco_type = "simple",
-			place_on = "mapgen:sand",
+			place_on = "littoral_mapgen:sand_wet",
 			sidelen = 8,
 			noise_params = {
 				offset = -0.008,
@@ -171,7 +171,7 @@ littoral.add_abiota({
 			biomes = "unknown",
 			y_min = -100,
 			y_max = 88,
-			spawn_by = "mapgen:water_source",
+			spawn_by = "littoral_mapgen:water_source",
 			num_spawn_by = 0,
 			flags = "force_placement",
 			decoration = modn..":ordenador",
@@ -184,6 +184,7 @@ littoral.add_abiota({
 	},
 	paramtypes = {"light","facedir"}
 })
+--[[
 littoral.add_abiota({
 	name = "vent1",
 	form = "tech",
@@ -191,14 +192,14 @@ littoral.add_abiota({
 	drawtype = "mesh",
 	mesh = "vent1.obj",
 	use_texture_alpha = true,
-	tiles = {"sand.png"},
+	tiles = {"sand_wet.png"},
 	groups = {cracky = 1},
 	deco ={
 		{
 			name = "vent1",
 			label = "Monopop vent1",
 			deco_type = "simple",
-			place_on = "mapgen:sand",
+			place_on = "littoral_mapgen:sand_wet",
 			sidelen = 8,
 			noise_params = {
 				offset = -0.008,
@@ -211,7 +212,7 @@ littoral.add_abiota({
 			biomes = "unknown",
 			y_min = -100,
 			y_max = 88,
-			spawn_by = "mapgen:stone",
+			spawn_by = "littoral_mapgen:stone",
 			num_spawn_by = 5,
 			flags = "force_placement, all_floors",
 			decoration = modn..":vent1",
@@ -226,7 +227,7 @@ littoral.add_abiota({
 	on_punch = function(pos)
 		littoral.bubble(pos, "smote1.png")
 	end
-})
+})]]
 
 --
 -- NODE REGISTRATION

@@ -11,7 +11,7 @@ littoral.add_deco = function(tab)
     minetest.register_decoration({
         name = tab.name or "Metropolitan "..tab.name.." placement",
         deco_type = tab.deco_type or "simple",
-        place_on = tab.place_on or "littoral_mapgen:sand",
+        place_on = tab.place_on or "littoral_mapgen:sand_wet",
         sidelen = tab.sidelen or 7,
         fill_ratio = tab.fill_ratio or 0.002,
         noise_params = tab.noise_params,
@@ -61,7 +61,7 @@ end
     littoral.add_deco({
         name = "Rocks Rock placement",
         deco_type = "simple",
-        place_on = "littoral_mapgen:sand",
+        place_on = "littoral_mapgen:sand_wet",
         sidelen = 8,
         noise_params = {
             offset = -0.016,
@@ -104,7 +104,7 @@ end
         biomes = {"unknown"},
         y_min = -112,
         y_max = 112,
-        spawn_by = "littoral_mapgen:sand",
+        spawn_by = "littoral_mapgen:sand_wet",
         num_spawn_by = 7,
         flags = "force_placement",
         schematic = littoral.schematic.ikaite1,
@@ -113,7 +113,7 @@ end
     minetest.register_decoration({
         name = "stone mix into surface sand",
         deco_type = "simple",
-        place_on = {"littoral_mapgen:sand"},
+        place_on = {"littoral_mapgen:sand_wet"},
         sidelen = 8,
         noise_params = {
             offset = -0.47,
@@ -128,7 +128,7 @@ end
         biomes = {"unknown"},
         y_min = -25000,
         y_max = 112,
-        spawn_by = {"littoral_mapgen:sand","littoral_mapgen:stone"},
+        spawn_by = {"littoral_mapgen:sand_wet","littoral_mapgen:stone"},
         num_spawn_by = -1,
         flags = "force_placement",
         decoration = {"littoral_mapgen:stone"},
@@ -141,13 +141,13 @@ end
     minetest.register_decoration({ -- coarser sand underneath mapgen fine sand
         name = "underlay coarse sand to sand",
         deco_type = "simple",
-        place_on = {"littoral_mapgen:sand"},
+        place_on = {"littoral_mapgen:sand_wet"},
         sidelen = 8,
         fill_ratio = 10,
         biomes = {"unknown"},
         y_min = -25000,
         y_max = 25000,
-        spawn_by = {"littoral_mapgen:sand"},
+        spawn_by = {"littoral_mapgen:sand_wet"},
         num_spawn_by = -1,
         flags = "force_placement",
         decoration = {"littoral_mapgen:sand_coarse"},
@@ -160,13 +160,13 @@ end
     minetest.register_decoration({ -- coarser sand underneath mapgen fine sand
         name = "underlay gravel to coarse sand",
         deco_type = "simple",
-        place_on = {"littoral_mapgen:sand"},
+        place_on = {"littoral_mapgen:sand_wet"},
         sidelen = 8,
         fill_ratio = 10,
         biomes = {"unknown"},
         y_min = -25000,
         y_max = 25000,
-        spawn_by = {"littoral_mapgen:sand"},
+        spawn_by = {"littoral_mapgen:sand_wet"},
         flags = "force_placement",
         decoration = {"littoral_mapgen:gravel"},
         height = 1,
@@ -180,7 +180,7 @@ local decos = {
     {   
         species = "seagrass2",
         deco_type = "simple",
-        place_on = "littoral_mapgen:sand",
+        place_on = "littoral_mapgen:sand_wet",
         sidelen = 32,
         noise_params = {
             offset = -0.0435,
@@ -209,7 +209,7 @@ local decos = {
     {
     species = "seagrass3",
     deco_type = "simple",
-    place_on = "littoral_mapgen:sand",
+    place_on = "littoral_mapgen:sand_wet",
     sidelen = 16,
     noise_params = {
         offset = -0.0135,
@@ -236,7 +236,7 @@ local decos = {
 {
 	species = "seagrass4",
 	deco_type = "simple",
-    place_on = "littoral_mapgen:sand",
+    place_on = "littoral_mapgen:sand_wet",
     sidelen = 8,
     noise_params = {
 		offset = 0.1,
@@ -264,7 +264,7 @@ local decos = {
     {   
         species = "seagrass5",
         deco_type = "simple",
-        place_on = "littoral_mapgen:sand",
+        place_on = "littoral_mapgen:sand_wet",
         sidelen = 32,
         noise_params = {
             offset = -0.0435,
@@ -292,7 +292,7 @@ local decos = {
 {
 	species = "seagrass6",
 	deco_type = "simple",
-    place_on = {"littoral_mapgen:sand", "group:seagrass"},
+    place_on = {"littoral_mapgen:sand_wet", "group:seagrass"},
     sidelen = 8,
     fill_ratio = 0.1,
     biomes = "unknown",
@@ -311,7 +311,7 @@ local decos = {
 {
 		species = "seagrass7",
 		deco_type = "simple",
-		place_on = "littoral_mapgen:sand",
+		place_on = "littoral_mapgen:sand_wet",
 		sidelen = 32,
 		noise_params = {
 			offset = -0.0435,
@@ -339,7 +339,7 @@ local decos = {
 {
     species = "bryozoan3",
     deco_type = "simple",
-    place_on = "littoral_mapgen:sand",
+    place_on = "littoral_mapgen:sand_wet",
     sidelen = 8,
     noise_params = {
         offset = -0.08,

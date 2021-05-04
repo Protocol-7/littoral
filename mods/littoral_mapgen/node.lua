@@ -5,61 +5,61 @@ local register_alias = minetest.register_alias
 local bio = littoral.biota
 
 -- SUBSTRATUM
-register_node(modn .. ':stone', {
-    description = 'Essential node for mapgen alias “mapgen_stone”',
-    tiles = { 'stone3.png' },
+register_node(modn .. ":stone", {
+    description = "Essential node for mapgen alias “mapgen_stone”",
+    tiles = { "stone3.png" },
     groups = { oddly_breakable_by_hand = 3 },
     is_ground_content = true,
 })
 
-register_node(modn .. ':sand', {
-    description = 'Wet Sand',
-    tiles = { 'sand.png' },
+register_node(modn .. ":sand_wet", {
+    description = "Wet Sand",
+    tiles = {"sand_wet.png"},
 	paramtype = "light",
 	--light_source = 0,
     groups = { oddly_breakable_by_hand = 3 , sandy = 1},
     is_ground_content = true
 })
-register_node(modn .. ':sand2', { -- dry
-    description = 'Dry Sand',
-    tiles = { 'sand2.png' },
+register_node(modn .. ":sand_dry", { -- dry
+    description = "Dry Sand",
+    tiles = {"sand_dry.png"},
     groups = { oddly_breakable_by_hand = 3, sandy = 1 },
     is_ground_content = true
 })
-register_node(modn .. ':sand_coarse', { -- dry
-    description = 'Sand Blend Stone',
-    tiles = { 'sand_coarse.png' },
+register_node(modn .. ":sand_coarse", { -- dry
+    description = "Sand Blend Stone",
+    tiles = { "sand_coarse.png" },
     groups = { oddly_breakable_by_hand = 3, sandy = 1 },
     is_ground_content = true
 })
-register_node(modn .. ':gravel', { -- dry
-    description = 'Sand Blend Stone',
-    tiles = {'gravel.png'},
+register_node(modn .. ":gravel", { -- dry
+    description = "Sand Blend Stone",
+    tiles = {"gravel.png"},
     groups = { oddly_breakable_by_hand = 3, sandy = 1 },
     is_ground_content = true
 })
-register_node(modn .. ':river_water_source', {
-    description = 'Essential node for mapgen alias “mapgen_river_water_source”',
-    tiles = {'lake1.png' },
+register_node(modn .. ":river_water_source", {
+    description = "Essential node for mapgen alias “mapgen_river_water_source”",
+    tiles = {"lake1.png" },
     groups = { oddly_breakable_by_hand = 3, wet = 1 },
     is_ground_content = true
 })
 
-register_node(modn .. ':river_water_flowing', {
-    description = 'Essential node for mapgen alias “mapgen_river_water_source”',
-    tiles = {'lake2.png' },
+register_node(modn .. ":river_water_flowing", {
+    description = "Essential node for mapgen alias “mapgen_river_water_source”",
+    tiles = {"lake2.png" },
     groups = { oddly_breakable_by_hand = 3 },
     is_ground_content = true
 })
-register_node(modn .. ':block1', {
-    description = 'Essential node for mapgen alias “mapgen_river_water_source”',
-    tiles = {'stone2.png^[mask:mplate.png' },
+register_node(modn .. ":block1", {
+    description = "Essential node for mapgen alias “mapgen_river_water_source”",
+    tiles = {"stone2.png^[mask:mplate.png" },
     groups = { oddly_breakable_by_hand = 3 },
     is_ground_content = true
 })
-register_node(modn .. ':hal1', {
-    description = 'HAL-58”',
-    tiles = {'haltex.png^[colorize:#2f4f4f:200' },
+register_node(modn .. ":hal1", {
+    description = "HAL-58”",
+    tiles = {"haltex.png^[colorize:#2f4f4f:200" },
     groups = { oddly_breakable_by_hand = 3, wet = 1 },
     is_ground_content = true,
 	on_punch = function()
@@ -160,10 +160,17 @@ register_node(modn..":water_flowing", {
 	post_effect_color = {a = 12, r = 30, g = 60, b = 90},
 	groups = {water = 3, liquid = 3, not_in_creative_inventory = 1, cools_lava = 1},
 })
+register_alias("mapgen_dirt", modn .. ":sand_wet")
+register_alias("mapgen_dirt_with_grass", modn .. ":sand_wet")
+register_alias("mapgen_sand", modn .. ":sand_wet")
+register_alias("mapgen_cobble", modn .. ":stone")
+register_alias("mapgen_lava_source", modn .. ":brine_source")
+register_alias("mapgen_stone", modn .. ":stone")
+register_alias("mapgen_water_source", modn..":water_source")
+register_alias("mapgen_river_water_source", modn .. ":river_water_source")
+register_alias("littoral_mapgen:water_source", "default:water_source")
+register_alias("littoral_mapgen:water_flowing", "default:water_flowing")
 
-register_alias('mapgen_stone', modn .. ':stone')
-register_alias('mapgen_water_source', modn..":water_source")
-register_alias('mapgen_river_water_source', modn .. ':river_water_source')
 
 
 register_node(modn..":brine_source", {

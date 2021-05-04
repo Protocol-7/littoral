@@ -9,7 +9,7 @@ minetest.set_mapgen_params(mapgen_params)
 littoral.biome = {}
 littoral.biome.limit = {}
 local limit = littoral.biome.limit
-
+sl = sl - 1
 limit.sea_level = sl
 limit.littoral = {sl,sl-28}
 limit.subtidal = {sl-28,sl-sl}
@@ -23,7 +23,7 @@ limit.vernal = {sl-667, -31000}
 ------------------------------------------
 minetest.register_biome({
     name = "unknown",
-    node_top = modn .. ":sand",
+    node_top = modn .. ':sand_wet',
     depth_top = 1,
     node_filler = modn .. ":stone",
     depth_filler = 1,

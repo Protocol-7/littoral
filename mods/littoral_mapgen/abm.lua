@@ -8,11 +8,11 @@ minetest.register_abm({
 	action = function(pos, node, aoc, aoc2)
 		local node = minetest.get_node(pos)
 		local wet = minetest.find_node_near(pos, 1, modn..":water_source")
-		if(node.name == modn..":sand2" and wet)then
-			minetest.set_node(pos, {name = modn..":sand"})
+		if(node.name == modn..":sand_dry" and wet)then
+			minetest.set_node(pos, {name = modn..":sand_wet"})
 			littoral.bubble(pos,"bubble2.png")
-		elseif(node.name == modn..":sand" and not wet)then
-			minetest.set_node(pos, {name = modn..":sand2"})
+		elseif(node.name == modn..":sand_wet" and not wet)then
+			minetest.set_node(pos, {name = modn..":sand_dry"})
 		end
 	end
 })

@@ -97,7 +97,7 @@ local pool = {
 		abundance = 8,
 		form = "bryozoan",
 		drawtype = "mesh",
-		tiles = {"[combine:16x32:0,0=bryozoan1.png:0,16=sand.png"},
+		tiles = {"[combine:16x32:0,0=bryozoan1.png:0,16=sand_wet.png"},
 		height = 1,
 		param2 = nil,
 		paramtypes = {}
@@ -120,7 +120,7 @@ local pool = {
     	order = 2,
 		form = "ascidian",
 		drawtype = "mesh",
-		tiles = {"[combine:16x32:0,0=ascidian2.png:0,16=sand.png"},
+		tiles = {"[combine:16x32:0,0=ascidian1.png:0,16=sand_wet.png"},
 		height = 1,
 		param2 = nil,
 		paramtypes = {nil,"meshoptions"}
@@ -142,7 +142,7 @@ local pool = {
 		form = "poriferan",
 		abundance = 8,
 		waving = 1,
-		tiles = {"sand.png^rootcover.png"},
+		tiles = {"sand_wet.png^rootcover.png"},
 		height = 1,
 		special_tiles = {{name ="poriferan3.png", tileable_vertical = false}},
 		drawtype = "plantlike_rooted",
@@ -155,7 +155,7 @@ local pool = {
 		form = "poriferan",
 		abundance = 8,
 		waving = 1,
-		tiles = {"sand.png^rootcover.png"},
+		tiles = {"sand_wet.png^rootcover.png"},
 		height = 1,
 		special_tiles = {{name ="poriferan2.png", tileable_vertical = false}},
 		drawtype = "plantlike_rooted",
@@ -167,7 +167,7 @@ local pool = {
 		form = "seagrass",
 		abundance = 8,
 		waving = 1,
-		tiles = {"sand.png^rootcover.png"},
+		tiles = {"sand_wet.png^rootcover.png"},
 		height = 1,
 		special_tiles = {{name ="seagrass8.png"}},
 		drawtype = "plantlike_rooted",
@@ -209,7 +209,7 @@ for n = 1, #pool do
     local org = pool[n]
     org.special_tiles = org.special_tiles or org.drawtype == "plantlike_rooted" and {{name = org.name..".png", tileable_vertical = true}}
     
-    org.tiles[1] = org.tiles[1] or --[[(org.drawtype == "mesh" and "[combine:16x32:0,0="..org.name..".png:0,16=sand"..".png") or]] "sand.png"
+    org.tiles[1] = org.tiles[1] or --[[(org.drawtype == "mesh" and "[combine:16x32:0,0="..org.name..".png:0,16=sand_wet"..".png") or]] "sand_wet.png"
 	
     org.mesh = org.drawtype == "mesh" and org.name..".obj"
 	org.place_offset_y = -1
